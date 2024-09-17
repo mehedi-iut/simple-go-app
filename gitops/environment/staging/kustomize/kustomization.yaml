@@ -1,7 +1,6 @@
 namespace: dev
 replicas:
-  - name: my-app
-    count: 2
+  - count: 2
 images:
   - name: mehedi02/simple-go-server
     newTag: v0.1.1
