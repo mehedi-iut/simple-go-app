@@ -1,6 +1,6 @@
 namespace: dev
 replicas:
-  - name: my-golang-app
+  - name: my-app
     count: 2
 images:
   - name: mehedi02/simple-go-server
