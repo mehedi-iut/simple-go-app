@@ -1,18 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: golang-deployment
+  labels:
+    app: golang
 spec:
   selector:
     matchLabels:
-      app: myapp
+      app: golang
   template:
     metadata:
       labels:
-        app: myapp
+        app: golang
     spec:
       containers:
-      - name: myapp
+      - name: golang
         image: mehedi02/simple-go-server
         resources:
           limits:
