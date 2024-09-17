@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-go-server
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: simple-go-server
+  template:
+    metadata:
+      labels:
+        app: simple-go-server
+    spec:
+      containers:
+      - name: simple-go-server
+        image: mehedi02/simple-go-server:v4.0.0
+        ports:
+        - containerPort: 9090
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "100Mi"
+          limits:
+            cpu: "500m"
+            memory: "500Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    app: simple-go-server
+  ports:
+  - port: 9090
+    targetPort: 9090
