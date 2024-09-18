@@ -1,0 +1,16 @@
+name: Test CI
+on:
+    push:
+        branches:
+            - master
+            - test
+    workflow_dispatch:
+
+jobs:
+    ci:
+        name: CI
+        runs-on: ubuntu-latest
+        steps:
+            - name: print
+              run: |
+                lsb_release -a
