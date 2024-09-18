@@ -4,7 +4,7 @@ on:
         branches:
             - master
             - test
-    # workflow_dispatch:
+    workflow_dispatch:
 
 jobs:
     ci:
