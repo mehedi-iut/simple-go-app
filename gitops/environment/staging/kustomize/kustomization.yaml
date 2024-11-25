@@ -1,9 +1,0 @@
-namespace: dev
-replicas:
-  - name: golang-deployment
-    count: 2
-images:
-  - name: mehedi02/simple-go-server
-    newTag: v0.1.1
-resources:
-  - ../../../../my-app-base
