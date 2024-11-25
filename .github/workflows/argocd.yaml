@@ -16,6 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.PAT_TOKEN }}  # Add this line for authentication
+        fetch-depth: 0
 
     - name: Login to Docker Hub
       uses: docker/login-action@v2
@@ -34,7 +37,14 @@ jobs:
 
     - name: Commit and push if changed
       run: |
-        git config --global user.name 'mehedi-iut'
-        git config --global user.email 'mahedihasan@iut-dhaka.edu'
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git add manifests/deployment.yaml
         git diff --quiet && git diff --staged --quiet || (git commit -m "Update image to ${{ env.IMAGE_TAG }}" && git push)
+
+    # - name: Commit and push if changed
+    #   run: |
+    #     git config --global user.name 'mehedi-iut'
+    #     git config --global user.email 'mahedihasan@iut-dhaka.edu'
+    #     git add manifests/deployment.yaml
+    #     git diff --quiet && git diff --staged --quiet || (git commit -m "Update image to ${{ env.IMAGE_TAG }}" && git push)
