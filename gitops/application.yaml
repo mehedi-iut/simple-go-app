@@ -3,6 +3,10 @@ kind: Application
 metadata:
   name: golang-app-dev
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: golang-app=mehedi02/simple-go-server
+    argocd-image-updater.argoproj.io/golang-app.pull-secret: pullsecret:argocd/dockerhub-secret
+    argocd-image-updater.argoproj.io/golang-app.update-strategy: latest
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
