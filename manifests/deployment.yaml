@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: simple-go-server
-        image: mehedi02/simple-go-server:80e0ed3709d3e573ba2d48f396a566410338e1e5
+        image: mehedi02/simple-go-server:e40cba88561284f371580bfc9b8d221bf768b628
         ports:
         - containerPort: 9090
         resources:
