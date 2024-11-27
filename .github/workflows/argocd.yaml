@@ -3,6 +3,9 @@ name: Build and Push to Docker Hub
 on:
   push:
     branches: [ test ]
+    paths:
+      - '**'
+      - '!manifests/deployment.yaml'
   pull_request:
     branches: [ test ]
 
